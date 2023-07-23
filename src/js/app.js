@@ -29,13 +29,34 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let name = variables.name;
+  if (name === null) {
+    name = "";
+  }
+  let lastname = variables.lastname;
+  if (lastname === null) {
+    lastname = "";
+  }
+  let role = variables.role;
+  if (role === null) {
+    role = "";
+  }
+
+  let city = variables.city;
+  if (city === null) {
+    city = "";
+  }
+  let country = variables.country;
+  if (country === null) {
+    country = "";
+  }
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name}</h1>
-          <h2>${variables.lastname}</h2>
-          <h3>${variables.city} ${variables.country}</h3>
+          <h1>${name} ${lastname}</h1>
+          <h2>${role}</h2>
+          <h3>${city} ${country}</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/${variables.twitter}"><i class="fa-brands fa-twitter"></i></i></a></li>
             <li><a href="https://github.com/${variables.github}"><i class="fa-brands fa-github"></i></a></li>
